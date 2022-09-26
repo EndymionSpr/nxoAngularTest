@@ -3,7 +3,7 @@
 <!--[if IE 7]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> <html lang="en" ng-app="myApp" class="no-js"> <!--<![endif]-->
-<head>
+<head  ng-app="myTestApp" ng-app="chartModule">
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>My AngularJS App</title>
@@ -18,7 +18,7 @@
   
 
 </head>
-<body ng-app="myTestApp" ng-app="chartModule">
+<body>
   <ul class="menu">
     <li><a href="#!/view1">view1</a></li>
     <li><a href="#!/view2">view2</a></li>
@@ -46,7 +46,10 @@
   <script src="core/version/version.js"></script>
   <script src="core/version/version-directive.js"></script>
   <script src="core/version/interpolate-filter.js"></script>
+  <script src="angular-local-storage.js"></script>
   <script src="./myTestApp.js"></script>
+  <!-- <script src="./localstore.js" type="module"></script> -->
+  
   
 </body>
 </html>

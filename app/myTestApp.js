@@ -1,12 +1,12 @@
 // import * as localStore from '@zellwk/javascript/browser/localstore'
 
-var myTestApp = angular.module('myTestApp',[]);
+var myTestApp = angular.module('myTestApp',['LocalStorageModule']);
 
 ourStorage = window.localStorage;
 
 // ourStorage = localStore;
 
-myTestApp.controller('myController', function($scope){
+myTestApp.controller('myController', function($scope, localStorageService){
     $scope.myMessage=["Jacob","Peter"];
     // ourStorage = window.localStorage;
     
@@ -21,13 +21,13 @@ myTestApp.controller('myController', function($scope){
     }
     $scope.save = function(){
         // Content of fucntion that saves to DB.
-        ourStorage.setItem($scope.saveAs, JSON.stringify($scope.myMessage));
-        // ourStorage.setItem($scope.saveAs, ($scope.myMessage));
+        // ourStorage.setItem($scope.saveAs, JSON.stringify($scope.myMessage));
+        localStorageService.set($scope.saveAs, ($scope.myMessage));
         
     }
     $scope.load = function(){
-        $scope.myMessage = JSON.parse(ourStorage.getItem($scope.loadThis));
-        // $scope.myMessage = (ourStorage.getItem($scope.loadThis));
+        // $scope.myMessage = JSON.parse(ourStorage.getItem($scope.loadThis));
+        $scope.myMessage = (localStorageService.get($scope.loadThis));
         
     }
     
