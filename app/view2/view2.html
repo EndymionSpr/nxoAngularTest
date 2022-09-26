@@ -1,5 +1,72 @@
+<script></script>
 <p>This is the partial for view 2.</p>
 <p>
   Showing of 'interpolate' filter:
   {{ 'Current version is v%VERSION%.' | interpolate }}
 </p>
+<div ng-controller="myController" >
+  <form  name="myForm" novalidate>
+    <table border = "0">
+       <tr>
+          <td>Enter first name:</td>
+          <td><input name = "firstname" type = "text" ng-model = "firstName" required>
+             <span style = "color:red" ng-show = "myForm.firstname.$dirty && myForm.firstname.$invalid">
+                <span ng-show = "myForm.firstname.$error.required">First Name is required.</span>
+             </span>
+          </td>
+       </tr>
+       
+       <tr>
+        <td>Update name:</td>
+        <td><input name = "updatename" type = "text" ng-model = "updateName">
+           <span style = "color:red" ng-show = "myForm.updatename.$dirty && myForm.updatename.$invalid">
+              <span ng-show = "myForm.updatename.$error.required">First Name is required.</span>
+           </span>
+        </td>
+     </tr>
+
+     <tr>
+      <td>Save as:</td>
+      <td><input name = "saveas" type = "text" ng-model = "saveAs">
+         <span style = "color:red" ng-show = "myForm.saveas.$dirty && myForm.saveas.$invalid">
+            <span ng-show = "myForm.saveas.$error.required">First Name is required.</span>
+         </span>
+      </td>
+   </tr>
+   <tr>
+    <td>Load this:</td>
+    <td><input name = "loadthis" type = "text" ng-model = "loadThis">
+       <span style = "color:red" ng-show = "myForm.loadthis.$dirty && myForm.loadthis.$invalid">
+          <span ng-show = "myForm.loadthis.$error.required">First Name is required.</span>
+       </span>
+    </td>
+ </tr>
+
+       <tr>
+          <td>
+             <button ng-click = "delete()">Delete</button>
+          </td>
+          <td>
+            <button ng-click = "submit()">Submit</button>
+            <button ng-click = "update()">Update</button>
+            <button ng-click = "save()">Save</button>
+            <button ng-click = "load()">Load</button>
+          </td>
+          
+          
+       </tr>
+  
+    </table>
+ </form>
+  
+  <br>
+  <span>
+  <ol>
+    <li ng-repeat = "person in myMessage">{{ person }}</li>
+  </ol>
+</span>
+<span>
+  <ul>
+    <li ng-repeat = "item in ourStorage">{{ item }}</li>
+  </ul>
+</span>
