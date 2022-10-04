@@ -48,9 +48,9 @@
           </td>
           <td>
             <button ng-click = "submit()">Submit</button>
-            <button ng-click = "update()">Update</button>
+            <button ng-click = "update()" ng-disabled="myDisableUpdate()">Update</button>
             <button ng-click = "save()">Save</button>
-            <button ng-click = "load()">Load</button>
+            <button ng-click = "load()" ng-disabled="myDisableLoad()">Load</button>
           </td>
           
           
@@ -65,8 +65,9 @@
     <li ng-repeat = "person in myMessage">{{ person }}</li>
   </ol>
 </span>
-<span>
+<!-- <span>
   <ul>
-    <li ng-repeat = "item in ourStorage">{{ item }}</li>
+    <li ng-repeat = "item in lengthOfLocalStorage">{{ localStorageService.get(item) }}</li>
   </ul>
-</span>
+  
+</span> -->
