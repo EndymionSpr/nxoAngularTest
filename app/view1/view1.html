@@ -1,2 +1,29 @@
 <p>This is the partial for view 1.</p>
-<img ng-src="https://quickchart.io/chart?bkg=white&c={type:%27pie%27,data:{labels:[2012,2013,2014,2015,2016],datasets:[{label:%27Users%27,data:[120,60,50,180,120]}]}}" alt="Something went wrong">
+<div ng-controller="myController">
+<div >
+   
+    <form name="view1Form">
+    <input type="text" ng-model="firstChartVar" placeholder="2012" /><br>
+
+    
+
+    </form>
+    <form name="chartBullets">
+        <label>PIE: 
+        <input type="radio" name="chartBullets" value="pie" ng-model='chartType' >
+    <br></label>
+
+        <label>LINE: 
+        <input type="radio" name="chartBullets" value="line" ng-model='chartType' >
+    <br></label>
+
+        <label>DONUT:
+        <input type="radio" name="chartBullets" value="donut" ng-model='chartType' >
+        <br></label>
+    </form>
+    
+</div>
+<div>
+    <img ng-src="https://quickchart.io/chart?bkg=white&c={type:%27{{chartType}}%27,data:{labels:[2012,2013,2014,2015,2016],datasets:[{label:%27Users%27,data:[{{firstChartVar}},60,50,180,120]}]}}" alt="Something went wrong">
+</div>
+</div>
