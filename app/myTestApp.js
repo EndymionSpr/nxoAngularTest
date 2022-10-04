@@ -11,9 +11,13 @@ myTestApp.controller('myController', function($scope, localStorageService){
         $scope.myMessage.push($scope.firstName);
     };
     $scope.delete = function(){
-        $scope.myMessage.splice($scope.myMessage.indexOf($scope.firstName),1);
+        if($scope.myMessage.indexOf($scope.firstName) !== -1)
+        {
+            $scope.myMessage.splice($scope.myMessage.indexOf($scope.firstName),1);
+        }
     };
     $scope.update = function(){
+        
         $scope.myMessage[$scope.myMessage.indexOf($scope.firstName)]=$scope.updateName;
     };
     $scope.save = function(){
