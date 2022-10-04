@@ -8,12 +8,21 @@ myTestApp.controller('myController', function($scope, localStorageService){
     $scope.myMessage=["Jacob","Peter"];
 
     $scope.submit = function(){
-        $scope.myMessage.push($scope.firstName);
+        if($scope.myMessage.indexOf($scope.firstName) !== -1){
+            $scope.warnMessage="This name already exists";
+        }else {
+            $scope.myMessage.push($scope.firstName);
+            $scope.clearWarnings();
+        }
     };
     $scope.delete = function(){
         if($scope.myMessage.indexOf($scope.firstName) !== -1)
         {
             $scope.myMessage.splice($scope.myMessage.indexOf($scope.firstName),1);
+            $scope.clearWarnings();
+        }else{
+            $scope.warnMessage="This item doesn't exist";
+            
         }
     };
     $scope.update = function(){
@@ -42,6 +51,9 @@ myTestApp.controller('myController', function($scope, localStorageService){
             return false;
         }
         else return true;
+    }
+    $scope.clearWarnings = function(){
+        $scope.warnMessage="";
     }
 
     // View1 part with Form for chart manipulation
