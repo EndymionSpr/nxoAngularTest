@@ -1,5 +1,5 @@
 
-var myTestApp = angular.module('myTestApp',['LocalStorageModule']);
+var myTestApp = angular.module('myTestApp',['LocalStorageModule','ngMaterial']);
 
 
 
