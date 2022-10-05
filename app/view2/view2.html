@@ -62,7 +62,10 @@
   <br>
   <span>
   <ol>
-    <li ng-repeat = "person in myMessage">{{ person }}</li>
+   
+    <li ng-repeat-start = "person in myMessage">{{ person }}</li>
+    <button ng-click="updateThis(person)">update</button>
+    <button ng-click = "deleteThis(person)"  ng-repeat-end>delete</button>
   </ol>
 </span>
 <!-- <span>

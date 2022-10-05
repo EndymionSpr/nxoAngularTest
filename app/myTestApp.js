@@ -3,7 +3,7 @@ var myTestApp = angular.module('myTestApp',['LocalStorageModule']);
 
 
 
-myTestApp.controller('myController', function($scope, localStorageService){
+myTestApp.controller('myController', function($scope, $window, localStorageService){
     
     $scope.myMessage=["Jacob","Peter"];
 
@@ -25,6 +25,14 @@ myTestApp.controller('myController', function($scope, localStorageService){
             
         }
     };
+    $scope.deleteThis = function(paramToDelete){
+        if ($window.confirm("Please confirm?")) {
+        $scope.myMessage.splice($scope.myMessage.indexOf(paramToDelete),1);
+        }
+    };
+    $scope.updateThis = function(paramToUpdate){
+        $scope.firstName=paramToUpdate;
+    };
     $scope.update = function(){
         
         $scope.myMessage[$scope.myMessage.indexOf($scope.firstName)]=$scope.updateName;
@@ -45,16 +53,19 @@ myTestApp.controller('myController', function($scope, localStorageService){
             return false;
         }
         else return true;
-    }
+    };
     $scope.myDisableUpdate = function(){
         if ($scope.myMessage[$scope.myMessage.indexOf($scope.firstName)]){
             return false;
         }
-        else return true;
-    }
+        else if($scope.updateName == null || $scope.updateName == ""){
+            return true;
+        }
+           else return true;
+    };
     $scope.clearWarnings = function(){
         $scope.warnMessage="";
-    }
+    };
 
     // View1 part with Form for chart manipulation
 
